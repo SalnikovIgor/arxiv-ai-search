@@ -20,10 +20,8 @@ def get_device():
 
 
 class Model:
-    def __init__(self, model_name: str = 'all-MiniLM-L6-v2') -> None:
+    def __init__(self, model_name: str = 'intfloat/e5-large') -> None:
         self.model = SentenceTransformer(model_name, device=get_device())
 
     def embedding(self, sentence: str):
         return self.model.encode(sentence)
-
-

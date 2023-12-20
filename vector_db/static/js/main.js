@@ -40,6 +40,7 @@ searchBtn.addEventListener('click', async () => {
 })
 
 function update_accordion(accordion, results = []) {
+    console.log(results)
     for (const [index, value] of results['distances'][0].entries()) {
         accordionItem = document.createElement('div');
         accordionItem.classList.add('accordion-item');
@@ -65,7 +66,7 @@ function update_accordion(accordion, results = []) {
             accordionButton.setAttribute('aria-expanded', 'false'); 
         };
         accordionButton.setAttribute('aria-controls', collapseId);
-        accordionButton.innerHTML = value;
+        accordionButton.innerHTML = `${Number(value).toFixed(5)} ${results['titles'][index]} ${results['metadatas'][0][index]['url']}`;
         accordionHeader.appendChild(accordionButton);
 
         // collapse
